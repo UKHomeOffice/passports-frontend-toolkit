@@ -1,2 +1,2 @@
 node_modules
-./public/stylesheets
+assets/stylesheets/app.scss
