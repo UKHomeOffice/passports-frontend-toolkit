@@ -1,0 +1,47 @@
+#global-header-bar {
+    @extend %site-width-container;
+    .inner-block {
+        padding: 0;
+    }
+}
+
+#content {
+    @extend %site-width-container;
+    padding-bottom: $gutter;
+    min-height: $site-min-height-small;
+    @include media(tablet) {
+        min-height: $site-min-height;
+    }
+    @include media(desktop) {
+        padding-bottom: $gutter*3;
+    }
+}
+
+.grid-row {
+    @extend %grid-row;
+    position: relative;
+}
+
+.column-one-third {
+    @include grid-column(1/3, $full-width: desktop);
+}
+
+.column-two-thirds {
+    @include grid-column(2/3, $full-width: desktop);
+}
+
+.column-right {
+    @include media(desktop) {
+        float: right;
+    }
+}
+
+header {
+    @include media(desktop) {
+        @extend %contain-floats;
+    }
+}
+
+.sidebar {
+    border-top: 10px solid $mainstream-brand;
+}

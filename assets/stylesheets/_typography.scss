@@ -1,0 +1,26 @@
+.bold {
+    font-weight: bold;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+h1 {
+    @extend .heading-large;
+}
+h2 {
+    @extend .heading-medium;
+}
+h3 {
+    @extend .heading-small;
+}
+strong {
+    font-weight: bold;
+}
+a[href^="#BROKEN"] {
+    color: red!important;
+    &:after {
+        display: inline;
+        content: "[BROKEN LINK]";
+    }
+}
