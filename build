@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+var path = require('path'),
+    fs = require('fs'),
+    mustache = require('mustache');
+
+var src = path.resolve(path.dirname(require.resolve('govuk_frontend_toolkit/package.json')), './stylesheets/');
+
+fs.readFile(path.resolve(__dirname, './assets/stylesheets/app.scss.tpl'), function (err, input) {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    } else {
+        fs.writeFile(path.resolve(__dirname, './assets/stylesheets/app.scss'), mustache.render(input.toString(), { 'govuk-toolkit-path': src }), function (err) {
+            if (err) {
+                console.error(err);
+                process.exit(1);
+            }
+        });
+    }
+});
+

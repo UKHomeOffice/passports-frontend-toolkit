@@ -1,0 +1,23 @@
+{
+  "name": "hmpo-frontend-toolkit",
+  "version": "0.0.0",
+  "description": "Set of common UI patterns/styles for hmpo projects",
+  "main": "assets/stylesheets/app.scss",
+  "scripts": {
+    "postinstall": "./build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UKHomeOffice/passports-frontend-toolkit.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/passports-frontend-toolkit/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/passports-frontend-toolkit",
+  "dependencies": {
+    "govuk_frontend_toolkit": "^3.1.0",
+    "mustache": "^1.1.0"
+  }
+}
