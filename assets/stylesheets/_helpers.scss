@@ -6,3 +6,14 @@
 .hide {
     display: none;
 }
+
+@mixin contain-floats {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    @include ie-lte(7) {
+        zoom: 1;
+    }
+}
