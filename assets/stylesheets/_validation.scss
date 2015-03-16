@@ -7,6 +7,10 @@
     border-bottom: none;
     border-width: $validation-bdr-size-lg;
 
+    &:focus {
+        outline: $focus-outline;
+    }
+
     ul {
         margin: 0;
         li {
@@ -28,13 +32,18 @@
     padding-left: $gutter-half - $validation-bdr-size;
     border-left: $validation-bdr-size-lg solid $error-colour;
     margin-left: -$gutter-half;
+
+    &:focus {
+        outline: $focus-outline;
+    }
+
     .form-control {
         margin-bottom: $validation-bdr-size;
     }
 }
 .invalid-input,
 .validation-error .date-input {
-    outline: $validation-bdr-size solid $error-colour;
+    border: $validation-bdr-size solid $error-colour;
 }
 .panel-indent {
     .validation-error {
