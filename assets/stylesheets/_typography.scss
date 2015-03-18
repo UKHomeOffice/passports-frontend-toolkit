@@ -17,10 +17,3 @@ h3 {
 strong {
     font-weight: bold;
 }
-a[href^="#BROKEN"] {
-    color: red!important;
-    &:after {
-        display: inline;
-        content: "[BROKEN LINK]";
-    }
-}
