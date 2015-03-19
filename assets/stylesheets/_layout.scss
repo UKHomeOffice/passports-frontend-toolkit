@@ -82,6 +82,7 @@ $ie8-column-two-thirds: $ie8-column-one-third * 2;
         width: $site-width;
         max-width: inherit;
         margin: 0 auto;
+        padding-bottom: 3*$gutter;
     }
     .grid-row {
         width: $site-width + $gutter;
