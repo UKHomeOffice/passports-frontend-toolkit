@@ -4,8 +4,10 @@ html {
 body {
     background: $white;
 }
-img, svg {
-    max-width: 100%;
+.main {
+    img, svg {
+        max-width: 100%;
+    }
 }
 .hmpo {
     white-space: nowrap;

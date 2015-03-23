@@ -24,7 +24,6 @@
 
 // Custom
 @import "variables";
-@import "helpers";
 @import "base";
 @import "layout";
 @import "typography";

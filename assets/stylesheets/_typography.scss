@@ -17,10 +17,11 @@ h3 {
 strong {
     font-weight: bold;
 }
-a[href^="#BROKEN"] {
-    color: red!important;
-    &:after {
-        display: inline;
-        content: "[BROKEN LINK]";
+
+.new-window {
+    padding-right: 17px;
+    background: url("../images/new-window-link.png") right center no-repeat;
+    &:hover {
+        background-image: url("../images/new-window-link-blue.png");
     }
 }
