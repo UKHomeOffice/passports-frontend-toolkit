@@ -1,0 +1,52 @@
+.validation-summary {
+    padding-left: $gutter-half - $validation-bdr-size-lg;
+    padding-right: $gutter-half;
+    margin-left: -$gutter-half;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-width: $validation-bdr-size-lg;
+
+    &:focus {
+        outline: $focus-outline;
+    }
+
+    ul {
+        margin: 0;
+        li {
+            margin: 0;
+            padding: 3px 0;
+        }
+    }
+    a {
+        @include bold-19();
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.validation-error {
+    float: left;
+    box-sizing: border-box;
+    padding-left: $gutter-half - $validation-bdr-size;
+    border-left: $validation-bdr-size-lg solid $error-colour;
+    margin-left: -$gutter-half;
+
+    &:focus {
+        outline: $focus-outline;
+    }
+
+    .form-control {
+        margin-bottom: $validation-bdr-size;
+    }
+}
+.invalid-input,
+.validation-error .date-input {
+    border: $validation-bdr-size solid $error-colour;
+}
+.panel-indent {
+    .validation-error {
+        margin-left: 0;
+    }
+}
