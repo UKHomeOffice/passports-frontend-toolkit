@@ -4,7 +4,8 @@
   "description": "Set of common UI patterns/styles for hmpo projects",
   "main": "assets/stylesheets/app.scss",
   "scripts": {
-    "postinstall": "./build"
+    "postinstall": "./build",
+    "test": "node-sass assets/stylesheets/app.scss -o assets/stylesheets"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "dependencies": {
     "govuk_frontend_toolkit": "^3.1.0",
     "mustache": "^1.1.0"
+  },
+  "devDependencies": {
+    "node-sass": "^2.1.1"
   }
 }
