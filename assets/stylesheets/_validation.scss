@@ -19,10 +19,6 @@
     }
     a {
         @include bold-19();
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
     }
 }
 .validation-error {
