@@ -18,9 +18,10 @@
         }
     }
     a {
-        @include bold-19();
+        @include bold-19;
     }
 }
+
 .validation-error {
     box-sizing: border-box;
     padding-left: $gutter-half - $validation-bdr-size;
@@ -34,6 +35,16 @@
         margin-bottom: $validation-bdr-size;
     }
 }
+
+.error-message {
+    display: block;
+    @include media(tablet) {
+        margin-bottom: 0.5em;
+    }
+    @include bold-19;
+    color: $error-colour;
+}
+
 .invalid-input,
 .validation-error .date-input {
     border: $validation-bdr-size solid $error-colour;
