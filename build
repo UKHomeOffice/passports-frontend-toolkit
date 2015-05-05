@@ -2,21 +2,48 @@
 
 var path = require('path'),
     fs = require('fs'),
-    mustache = require('mustache');
+    cp = require('child_process'),
+    mustache = require('mustache'),
+    async = require('async');
 
-var src = path.resolve(path.dirname(require.resolve('govuk_frontend_toolkit/package.json')), './stylesheets/');
+var GOVUK_TOOLKIT = path.dirname(require.resolve('govuk_frontend_toolkit/package.json'));
 
-fs.readFile(path.resolve(__dirname, './assets/stylesheets/app.scss.tpl'), function (err, input) {
+function renderTemplate(callback) {
+    var src = path.resolve(GOVUK_TOOLKIT, './stylesheets/');
+
+    fs.readFile(path.resolve(__dirname, './assets/stylesheets/app.scss.tpl'), function (err, input) {
+        if (err) {
+            callback(err);
+        } else {
+            fs.writeFile(path.resolve(__dirname, './assets/stylesheets/app.scss'), mustache.render(input.toString(), { 'govuk-toolkit-path': src }), function (err) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback();
+                }
+            });
+        }
+    });
+}
+
+function copyImages(callback) {
+    var src = path.resolve(GOVUK_TOOLKIT, './images/');
+
+    fs.mkdir(path.resolve(__dirname, './assets/images/icons'), function (err) {
+        if (err && err.code !== 'EEXIST') {
+            callback(err);
+        } else {
+            cp.exec('cp ' + src + '/* ./assets/images/icons/ -R', callback);
+        }
+    });
+
+}
+
+async.series([
+    renderTemplate,
+    copyImages
+], function (err) {
     if (err) {
-        console.error(err);
-        process.exit(1);
-    } else {
-        fs.writeFile(path.resolve(__dirname, './assets/stylesheets/app.scss'), mustache.render(input.toString(), { 'govuk-toolkit-path': src }), function (err) {
-            if (err) {
-                console.error(err);
-                process.exit(1);
-            }
-        });
+        throw err;
     }
 });
-
