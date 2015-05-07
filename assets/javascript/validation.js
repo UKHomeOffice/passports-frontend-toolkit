@@ -14,8 +14,6 @@ function clicked(e) {
         inputs;
 
     if (group) {
-        group.focus();
-
         if (group.getElementsByTagName('input').length) {
             inputs = group.getElementsByTagName('input');
         } else if (group.getElementsByTagName('textarea').length) {
@@ -24,7 +22,7 @@ function clicked(e) {
             inputs = group.getElementsByTagName('select');
         }
 
-        if (inputs && inputs.length === 1) {
+        if (inputs) {
             inputs[0].focus();
         }
     }

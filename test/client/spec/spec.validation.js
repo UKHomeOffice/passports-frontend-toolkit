@@ -30,20 +30,7 @@ describe('Validation', function () {
         beforeEach(function () {
             $('#content').append('<div class="validation-summary" tabindex="-1">');
             $('.validation-summary').append('<ul><li><a id="error" href="#input-group">Error</a></li></ul>');
-            $('#content').append('<div id="input-group" tabindex="-1">');
-        });
-
-        describe('input group', function () {
-
-            beforeEach(function () {
-                validation();
-            });
-
-            it('adds focus to the input group when a validation message is clicked', function () {
-                util.triggerEvent(document.getElementById('error'), 'click');
-                document.activeElement.should.equal(document.getElementById('input-group'));
-            });
-
+            $('#content').append('<div id="input-group">');
         });
 
         describe('input element', function () {
@@ -53,7 +40,7 @@ describe('Validation', function () {
                 validation();
             });
 
-            it('adds focus if there only one input', function () {
+            it('adds focus to the first input', function () {
                 util.triggerEvent(document.getElementById('error'), 'click');
                 document.activeElement.should.equal(document.getElementsByTagName('input')[0]);
             });
@@ -67,7 +54,7 @@ describe('Validation', function () {
                 validation();
             });
 
-            it('adds focus if there is only one textarea', function () {
+            it('adds focus to the first textarea', function () {
                 util.triggerEvent(document.getElementById('error'), 'click');
                 document.activeElement.should.equal(document.getElementsByTagName('textarea')[0]);
             });
@@ -81,24 +68,9 @@ describe('Validation', function () {
                 validation();
             });
 
-            it('adds focus if there is only one select', function () {
+            it('adds focus to the first select box', function () {
                 util.triggerEvent(document.getElementById('error'), 'click');
                 document.activeElement.should.equal(document.getElementsByTagName('select')[0]);
-            });
-
-        });
-
-        describe('more than one "input" in a group', function () {
-
-            beforeEach(function () {
-                $('#input-group').append('<input type="text">');
-                $('#input-group').append('<input type="text">');
-                validation();
-            });
-
-            it('leaves focus on the input group', function () {
-                util.triggerEvent(document.getElementById('error'), 'click');
-                document.activeElement.should.equal(document.getElementById('input-group'));
             });
 
         });
