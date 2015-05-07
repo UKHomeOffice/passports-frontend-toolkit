@@ -2,15 +2,15 @@
     padding-left: $gutter-half - $validation-bdr-size-lg;
     padding-right: $gutter-half;
     margin-left: -$gutter-half;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
     border-width: $validation-bdr-size-lg;
 
     &:focus {
         outline: $focus-outline;
     }
 
+    h2 {
+        margin: 0.3em 0;
+    }
     ul {
         margin: 0;
         li {
