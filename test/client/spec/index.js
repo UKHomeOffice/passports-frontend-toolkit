@@ -13,5 +13,6 @@ describe('hmpo', function () {
     require('./spec.helpers');
     require('./spec.form-focus');
     require('./spec.progressive-reveal');
+    require('./spec.validation');
 
 });
