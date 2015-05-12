@@ -11,20 +11,5 @@
 @import "{{{govuk-toolkit-path}}}/design-patterns/buttons";
 @import "{{{govuk-toolkit-path}}}/grid_layout";
 
-// govuk-elements
-@import "govuk-elements/helpers";
-@import "govuk-elements/reset";
-@import "govuk-elements/elements-typography";
-@import "govuk-elements/forms";
-@import "govuk-elements/buttons";
-@import "govuk-elements/details";
-@import "govuk-elements/lists";
-@import "govuk-elements/panels";
-@import "govuk-elements/tables";
-
 // Custom
 @import "variables";
-@import "base";
-@import "layout";
-@import "typography";
-@import "validation";

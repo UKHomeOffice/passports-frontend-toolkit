@@ -1,4 +1,4 @@
 node_modules
-assets/stylesheets/app.scss
-assets/stylesheets/app.css
+assets/stylesheets/*.css
+assets/stylesheets/mixins.scss
 assets/images/icons
