@@ -11,11 +11,11 @@ var GOVUK_TOOLKIT = path.dirname(require.resolve('govuk_frontend_toolkit/package
 function renderTemplate(callback) {
     var src = path.resolve(GOVUK_TOOLKIT, './stylesheets/');
 
-    fs.readFile(path.resolve(__dirname, './assets/stylesheets/app.scss.tpl'), function (err, input) {
+    fs.readFile(path.resolve(__dirname, './assets/stylesheets/mixins.scss.tpl'), function (err, input) {
         if (err) {
             callback(err);
         } else {
-            fs.writeFile(path.resolve(__dirname, './assets/stylesheets/app.scss'), mustache.render(input.toString(), { 'govuk-toolkit-path': src }), function (err) {
+            fs.writeFile(path.resolve(__dirname, './assets/stylesheets/mixins.scss'), mustache.render(input.toString(), { 'govuk-toolkit-path': src }), function (err) {
                 if (err) {
                     callback(err);
                 } else {

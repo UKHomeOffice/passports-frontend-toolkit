@@ -1,0 +1,8 @@
+.reveal {
+    float: left;
+    width: 100%;
+    .panel-indent {
+        margin-top: $gutter-half / 2;
+        margin-bottom: $gutter-half;
+    }
+}
