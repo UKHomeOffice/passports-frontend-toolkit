@@ -8,10 +8,6 @@
 #content {
     @extend %site-width-container;
     padding-bottom: $gutter;
-    min-height: $site-min-height-small;
-    @include media(tablet) {
-        min-height: $site-min-height;
-    }
     @include media(desktop) {
         padding-bottom: $gutter*3;
     }
