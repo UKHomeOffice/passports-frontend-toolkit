@@ -33,7 +33,7 @@ function copyImages(callback) {
         if (err && err.code !== 'EEXIST') {
             callback(err);
         } else {
-            cp.exec('cp ' + src + '/* ./assets/images/icons/ -R', callback);
+            cp.exec('cp -R ' + src + '/* ./assets/images/icons/', callback);
         }
     });
 
