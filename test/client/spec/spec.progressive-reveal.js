@@ -49,7 +49,7 @@ describe('Progressive Reveal', function () {
 
         });
 
-        describe('groups', function () {
+        describe('multiple checkbox', function () {
 
             beforeEach(function () {
                 // first checkbox has toggle content
@@ -180,6 +180,41 @@ describe('Progressive Reveal', function () {
                     $('#radio4-toggle').hasClass('js-hidden').should.not.be.ok;
                 });
 
+            });
+
+            describe('multiple radios toggling the same id', function () {
+                beforeEach(function () {
+                    $('form').append('<label for="radio3">');
+                    $('label[for=radio3]').append('<input type="radio" name="group1" id="radio3" data-toggle="radio1-toggle">');
+                    progressiveReveal();
+                });
+
+                it('show content when checked', function () {
+                    $('#radio1').click();
+                    $('#radio1-toggle').hasClass('js-hidden').should.not.be.ok;
+                    $('#radio2-toggle').hasClass('js-hidden').should.be.ok;
+                });
+
+                it('show new content and hide old content if another radio is checked', function () {
+                    $('#radio1').click();
+                    $('#radio2').click();
+                    $('#radio1-toggle').hasClass('js-hidden').should.be.ok;
+                    $('#radio2-toggle').hasClass('js-hidden').should.not.be.ok;
+                });
+
+                it('show content for all radios referencing that id', function () {
+                    $('#radio1').click();
+                    $('#radio1-toggle').hasClass('js-hidden').should.not.be.ok;
+                    $('#radio2-toggle').hasClass('js-hidden').should.be.ok;
+
+                    $('#radio2').click();
+                    $('#radio2-toggle').hasClass('js-hidden').should.not.be.ok;
+                    $('#radio1-toggle').hasClass('js-hidden').should.be.ok;
+
+                    $('#radio3').click();
+                    $('#radio1-toggle').hasClass('js-hidden').should.not.be.ok;
+                    $('#radio2-toggle').hasClass('js-hidden').should.be.ok;
+                });
             });
 
         });
