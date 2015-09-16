@@ -9,17 +9,22 @@ var helpers = require('./helpers'),
 
 function inputClicked(e, target) {
     target = target || helpers.target(e);
+    var shown;
     _.each(groups[target.name], function (input) {
         var toggle = document.getElementById(input.getAttribute(toggleAttr));
         if (toggle) {
+
             if (input.checked) {
                 input.setAttribute('aria-expanded', 'true');
                 toggle.setAttribute('aria-hidden', 'false');
                 helpers.removeClass(toggle, hiddenClass);
+                shown = toggle.id;
             } else {
                 input.setAttribute('aria-expanded', 'false');
-                toggle.setAttribute('aria-hidden', 'true');
-                helpers.addClass(toggle, hiddenClass);
+                if (shown !== toggle.id) {
+                    toggle.setAttribute('aria-hidden', 'true');
+                    helpers.addClass(toggle, hiddenClass);
+                }
             }
         }
     });
