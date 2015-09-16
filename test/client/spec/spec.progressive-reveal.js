@@ -214,6 +214,10 @@ describe('Progressive Reveal', function () {
                     $('#radio3').click();
                     $('#radio1-toggle').hasClass('js-hidden').should.not.be.ok;
                     $('#radio2-toggle').hasClass('js-hidden').should.be.ok;
+
+                    $('#radio1').click();
+                    $('#radio1-toggle').hasClass('js-hidden').should.not.be.ok;
+                    $('#radio2-toggle').hasClass('js-hidden').should.be.ok;
                 });
             });
 
