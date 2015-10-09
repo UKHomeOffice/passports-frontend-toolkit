@@ -91,7 +91,6 @@ $ie8-column-two-thirds: $ie8-column-one-third * 2;
     }
     .grid-row {
         width: $site-width + $gutter;
-        margin: 0 -$gutter-half;
     }
     .column-two-thirds {
         @include ie8-column-two-thirds;
