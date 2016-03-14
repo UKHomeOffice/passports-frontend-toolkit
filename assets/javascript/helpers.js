@@ -6,6 +6,15 @@ var DESKTOP_WIDTH = 769;
 
 var helpers = {};
 
+if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (obj, start) {
+        for (var i = (start || 0), j = this.length; i < j; i++) {
+            if (this[i] === obj) { return i; }
+        }
+        return -1;
+    };
+}
+
 helpers.documentReady = function (callback) {
     this.addEvent(document, 'DOMContentLoaded', callback);
     this.addEvent(window, 'load', callback);
