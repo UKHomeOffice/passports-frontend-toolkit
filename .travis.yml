@@ -4,3 +4,8 @@ node_js:
   - "0.12"
 notifications:
   email: false
+
+script:
+  - npm run lint
+  - npm run style
+  - npm run test

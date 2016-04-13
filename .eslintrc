@@ -1,0 +1,5 @@
+extends:
+  - "homeoffice/config/default"
+
+env:
+  browser: true

@@ -1,61 +1,59 @@
+'use strict';
+
 var _ = require('underscore');
-
 var helpers = require('./helpers');
-
 var NAME = 'VALIDATION';
 
-var summary;
-
 function clicked(e) {
-    var elem = helpers.target(e);
+  var elem = helpers.target(e);
 
-    var groupId = elem.getAttribute('href').replace(/^#/, ''),
-        group = document.getElementById(groupId),
-        inputs;
+  var groupId = elem.getAttribute('href').replace(/^#/, '');
+  var group = document.getElementById(groupId);
+  var inputs;
 
-    if (group) {
-        if (group.getElementsByTagName('input').length) {
-            inputs = group.getElementsByTagName('input');
-        } else if (group.getElementsByTagName('textarea').length) {
-            inputs = group.getElementsByTagName('textarea');
-        } else if (group.getElementsByTagName('select').length) {
-            inputs = group.getElementsByTagName('select');
-        }
-
-        if (inputs) {
-            inputs[0].focus();
-        }
+  if (group) {
+    if (group.getElementsByTagName('input').length) {
+      inputs = group.getElementsByTagName('input');
+    } else if (group.getElementsByTagName('textarea').length) {
+      inputs = group.getElementsByTagName('textarea');
+    } else if (group.getElementsByTagName('select').length) {
+      inputs = group.getElementsByTagName('select');
     }
+
+    if (inputs) {
+      inputs[0].focus();
+    }
+  }
 }
 
 function pressed(e) {
-    // Allow the spacebar to trigger the same behaviour
-    if(e.keyCode === 32) {
-        clicked(e);
-    }
+  // Allow the spacebar to trigger the same behaviour
+  if (e.keyCode === 32) {
+    clicked(e);
+  }
 }
 
 function setup(summary) {
-    summary.focus();
+  summary.focus();
 
-    var errors = summary.getElementsByTagName('a');
+  var errors = summary.getElementsByTagName('a');
 
-    _.each(errors, function (error) {
-        helpers.addEvent(error, 'click', clicked);
-        helpers.addEvent(error, 'keydown', pressed);
-    });
+  _.each(errors, function addErrorEvents(error) {
+    helpers.addEvent(error, 'click', clicked);
+    helpers.addEvent(error, 'keydown', pressed);
+  });
 }
 
 function validation() {
-    var summaries = helpers.getElementsByClass(document.getElementById('content'), 'div', 'validation-summary');
+  var summaries = helpers.getElementsByClass(document.getElementById('content'), 'div', 'validation-summary');
 
-    if (summaries.length) {
-        summary = summaries[0];
+  if (summaries.length) {
+    var summary = summaries[0];
 
-        helpers.once(summary, NAME, function (summary) {
-            setup(summary);
-        });
-    }
+    helpers.once(summary, NAME, function setupSummary(sum) {
+      setup(sum);
+    });
+  }
 }
 
 module.exports = validation;

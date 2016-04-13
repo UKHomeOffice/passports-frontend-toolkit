@@ -1,13 +1,15 @@
-module.exports = function (config) {
-    config.set({
-        browsers: [
-            'PhantomJS'
-        ],
-        frameworks: ['mocha', 'chai', 'sinon-chai', 'browserify'],
-        preprocessors: {
-            './spec/index.js': ['browserify']
-        },
-        files: ['./spec/index.js'],
-        singleRun: true
-    });
+'use strict';
+
+module.exports = function(config) {
+  config.set({
+    browsers: [
+      'PhantomJS'
+    ],
+    frameworks: ['mocha', 'chai', 'sinon-chai', 'browserify'],
+    preprocessors: {
+      './spec/index.js': ['browserify']
+    },
+    files: ['./spec/index.js'],
+    singleRun: true
+  });
 };

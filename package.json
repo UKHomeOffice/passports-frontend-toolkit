@@ -7,7 +7,9 @@
     "postinstall": "./build",
     "test-client": "./node_modules/karma/bin/karma start ./test/client/karma.conf.js",
     "test-sass": "node-sass assets/stylesheets/app.scss -o assets/stylesheets",
-    "test": "npm run test-client && npm run test-sass"
+    "test": "npm run test-client && npm run test-sass",
+    "lint": "eslint .",
+    "style": "jscs ."
   },
   "repository": {
     "type": "git",
@@ -27,13 +29,25 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "eslint": "^0.23.0",
+    "eslint-config-homeoffice": "^0.1.4",
+    "eslint-plugin-filenames": "^0.1.1",
+    "eslint-plugin-mocha": "^0.2.2",
+    "eslint-plugin-one-variable-per-var": "0.0.3",
     "jquery": "^2.1.4",
+    "jscs": "^2.11.0",
     "karma": "0.12.24",
     "karma-browserify": "0.2.1",
     "karma-chai": "0.1.0",
     "karma-mocha": "0.1.9",
     "karma-phantomjs-launcher": "0.1.4",
     "karma-sinon-chai": "0.3.0",
-    "node-sass": "^2.1.1"
-  }
+    "node-sass": "^3.4.2",
+    "pre-commit": "^1.1.2"
+  },
+  "pre-commit": [
+    "lint",
+    "style",
+    "test"
+  ]
 }
