@@ -41,9 +41,7 @@
 }
 
 header {
-    @include media(desktop) {
-        @extend %contain-floats;
-    }
+    @extend %contain-floats;
 }
 
 .sidebar {
