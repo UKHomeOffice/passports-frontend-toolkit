@@ -11,9 +11,12 @@ function inputClicked(e, target) {
     target = target || helpers.target(e);
     var shown;
     _.each(groups[target.name], function (input) {
-        var toggle = document.getElementById(input.getAttribute(toggleAttr));
+        var id = input.getAttribute(toggleAttr)
+        // check if the element supplied is part of an {id}-panel
+        // if so then toggle this parent element to also toggle
+        // associated labels and legends
+        var toggle = document.getElementById(id + '-panel') || document.getElementById(id);
         if (toggle) {
-
             if (input.checked) {
                 input.setAttribute('aria-expanded', 'true');
                 toggle.setAttribute('aria-hidden', 'false');

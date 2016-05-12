@@ -36,6 +36,25 @@ describe('Progressive Reveal', function () {
 
         });
 
+        describe('parent panel', function () {
+
+            beforeEach(function () {
+                $('form').append('<div id="check-toggle-panel" class="reveal js-hidden">');
+                $('label').append('<input type="checkbox" id="check" name="check" data-toggle="check-toggle">CheckBox');
+                progressiveReveal();
+            });
+
+            it('should show #check-toggle-panel if present', function () {
+                $('#check').click();
+                $('#check-toggle-panel').hasClass('js-hidden').should.not.be.ok;
+            });
+
+            it('should not show #show-toggle', function () {
+                $('#check').click();
+                $('#check-toggle').hasClass('js-hidden').should.be.ok;
+            });
+        });
+
         describe('pre-selected', function () {
 
             beforeEach(function () {
