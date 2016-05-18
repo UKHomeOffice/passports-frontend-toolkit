@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "./build",
-    "test-client": "./node_modules/karma/bin/karma start ./test/client/karma.conf.js",
+    "test-client": "karma start ./test/client/karma.conf.js",
     "test-sass": "node-sass assets/stylesheets/app.scss -o assets/stylesheets",
-    "test": "npm run test-client && npm run test-sass"
+    "lint": "eslint ./build",
+    "snyk": "snyk test",
+    "test": "npm run lint && npm run test-client && npm run test-sass && npm run snyk"
   },
   "repository": {
     "type": "git",
@@ -20,20 +22,29 @@
   },
   "homepage": "https://github.com/UKHomeOffice/passports-frontend-toolkit",
   "dependencies": {
-    "async": "^0.9.0",
-    "browserify": "^4.0.0",
+    "async": "^2.0.0-rc.5",
+    "browserify": "^13.0.1",
     "govuk_frontend_toolkit": "^4.5.0",
-    "mustache": "^1.1.0",
+    "mustache": "^2.2.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.10.2",
     "jquery": "^2.1.4",
-    "karma": "0.12.24",
-    "karma-browserify": "0.2.1",
+    "karma": "^0.13.22",
+    "karma-browserify": "^5.0.5",
     "karma-chai": "0.1.0",
-    "karma-mocha": "0.1.9",
-    "karma-phantomjs-launcher": "0.1.4",
-    "karma-sinon-chai": "0.3.0",
-    "node-sass": "^2.1.1"
+    "karma-mocha": "^1.0.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon-chai": "^1.2.0",
+    "lolex": "^1.4.0",
+    "mocha": "^2.4.5",
+    "node-sass": "^3.4.2",
+    "phantomjs-prebuilt": "^2.1.7",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
+    "snyk": "^1.14.3",
+    "watchify": "^3.7.0"
   }
 }
