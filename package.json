@@ -4,12 +4,12 @@
   "description": "Set of common UI patterns/styles for hmpo projects",
   "main": "index.js",
   "scripts": {
+    "test": "npm run lint && npm run test-sass && npm run test-client && npm run snyk",
     "postinstall": "./build",
-    "test-client": "karma start ./test/client/karma.conf.js",
     "test-sass": "node-sass assets/stylesheets/app.scss -o assets/stylesheets",
-    "lint": "eslint ./build",
-    "snyk": "snyk test",
-    "test": "npm run lint && npm run test-client && npm run test-sass && npm run snyk"
+    "test-client": "karma start ./test/client/karma.conf.js",
+    "lint": "eslint .",
+    "snyk": "snyk test"
   },
   "repository": {
     "type": "git",
