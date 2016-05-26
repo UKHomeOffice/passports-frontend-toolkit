@@ -30,7 +30,7 @@ function clicked(e) {
 
 function pressed(e) {
     // Allow the spacebar to trigger the same behaviour
-    if(e.keyCode === 32) {
+    if (e.keyCode === 32) {
         clicked(e);
     }
 }

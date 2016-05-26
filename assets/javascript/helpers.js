@@ -98,7 +98,7 @@ helpers.addClasses = function (el, classNames) {
 ***/
 helpers.stripClasses = function (arr, className) {
     for (var i = 0; i < arr.length; i++) {
-        if(arr[i] === className) {
+        if (arr[i] === className) {
             arr.splice(i, 1);
             --i;
         }
@@ -154,12 +154,11 @@ helpers.isJSWindow = function () {
     return window.opener !== null;
 };
 
-helpers.getStyle = function (elem, prop){
+helpers.getStyle = function (elem, prop) {
     var val = '';
     if (document.defaultView && document.defaultView.getComputedStyle) {
         val = document.defaultView.getComputedStyle(elem, '').getPropertyValue(prop);
-    }
-    else if (elem.currentStyle) {
+    } else if (elem.currentStyle) {
         prop = prop.replace(/\-(\w)/g, function (match, c) {
             return c.toUpperCase();
         });

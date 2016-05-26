@@ -2,8 +2,9 @@
 
 var _ = require('underscore');
 
-var helpers = require('./helpers'),
-    inputs, groups,
+var helpers = require('./helpers');
+
+var inputs, groups,
     toggleAttr = 'data-toggle',
     hiddenClass = 'js-hidden';
 
@@ -11,7 +12,7 @@ function inputClicked(e, target) {
     target = target || helpers.target(e);
     var shown;
     _.each(groups[target.name], function (input) {
-        var id = input.getAttribute(toggleAttr)
+        var id = input.getAttribute(toggleAttr);
         // check if the element supplied is part of an {id}-panel
         // if so then toggle this parent element to also toggle
         // associated labels and legends

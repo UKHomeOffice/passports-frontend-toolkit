@@ -12,8 +12,9 @@ var _ = require('underscore');
 
 var NAME = 'form-focus';
 
-var helpers = require('./helpers'),
-    groups,
+var helpers = require('./helpers');
+
+var groups,
     blockLabelClass = 'block-label',
     focussedClass = 'focused',
     selectedClass = 'selected';
@@ -62,7 +63,7 @@ function setupLabels(labels) {
     }
 }
 
-function formFocus () {
+function formFocus() {
     var forms = document.getElementsByTagName('form'),
         labels,
         summaries;
