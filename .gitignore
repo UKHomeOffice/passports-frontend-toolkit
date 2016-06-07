@@ -1,4 +1,5 @@
 assets/stylesheets/*.css
+assets/stylesheets/govuk-elements.scss
 assets/stylesheets/mixins.scss
 assets/images/icons
 
