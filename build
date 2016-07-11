@@ -3,7 +3,6 @@
 var path = require('path'),
     fs = require('fs'),
     cp = require('child_process'),
-    mustache = require('mustache'),
     async = require('async');
 
 var GOVUK_TOOLKIT = path.dirname(require.resolve('govuk_frontend_toolkit/package.json'));
