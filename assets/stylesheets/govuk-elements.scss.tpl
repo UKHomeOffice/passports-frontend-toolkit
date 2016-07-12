@@ -1,9 +1,0 @@
-@import "{{{govuk-elements-path}}}/helpers";
-@import "{{{govuk-elements-path}}}/reset";
-@import "{{{govuk-elements-path}}}/elements-typography";
-@import "{{{govuk-elements-path}}}/forms";
-@import "{{{govuk-elements-path}}}/buttons";
-@import "{{{govuk-elements-path}}}/details";
-@import "{{{govuk-elements-path}}}/lists";
-@import "{{{govuk-elements-path}}}/panels";
-@import "{{{govuk-elements-path}}}/tables";
