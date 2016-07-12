@@ -2,39 +2,9 @@
 
 var path = require('path'),
     fs = require('fs'),
-    cp = require('child_process'),
-    mustache = require('mustache'),
-    async = require('async');
+    cp = require('child_process');
 
-var GOVUK_TOOLKIT = path.dirname(require.resolve('govuk_frontend_toolkit/package.json')),
-    GOVUK_ELEMENTS = path.dirname(require.resolve('govuk-elements-sass/package.json'));
-
-function renderTemplate(name) {
-    var file = './assets/stylesheets/' + name + '.scss',
-        src = {
-            toolkit: path.resolve(GOVUK_TOOLKIT, './stylesheets/'),
-            elements: path.resolve(GOVUK_ELEMENTS, './public/sass/elements/')
-        };
-
-    return function (callback) {
-        fs.readFile(path.resolve(__dirname, file + '.tpl'), function (err, input) {
-            if (err) {
-                callback(err);
-            } else {
-                fs.writeFile(path.resolve(__dirname, file), mustache.render(input.toString(), {
-                    'govuk-toolkit-path': src.toolkit,
-                    'govuk-elements-path': src.elements
-                }), function (err) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        callback();
-                    }
-                });
-            }
-        });
-    };
-}
+var GOVUK_TOOLKIT = path.dirname(require.resolve('govuk_frontend_toolkit/package.json'));
 
 function copyImages(callback) {
     var src = path.resolve(GOVUK_TOOLKIT, './images/');
@@ -49,11 +19,7 @@ function copyImages(callback) {
 
 }
 
-async.series([
-    renderTemplate('mixins'),
-    renderTemplate('govuk-elements'),
-    copyImages
-], function (err) {
+copyImages(function (err) {
     if (err) {
         throw err;
     }
