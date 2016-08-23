@@ -1,9 +1,16 @@
 .reveal {
-    float: left;
-    width: 100%;
-    .panel-indent {
-        margin-top: $gutter-half / 2;
-        margin-bottom: $gutter-half;
+    @include media(tablet) {
+        float: left;
+        width: 100%;
+    }
+
+     > .panel {
+        @include media(mobile) {
+            float: none;
+        }
+
+        margin-top: 10px;
+        margin-bottom: 0;
     }
 }
 

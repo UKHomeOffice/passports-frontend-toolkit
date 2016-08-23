@@ -1,5 +1,22 @@
+.button {
+    text-align: center;
+}
+
 .button + .inline-options {
     padding-top: em(10);
     display: inline-block;
     line-height: 1.25;
+}
+
+.button-secondary {
+    @include button($grey-3);
+}
+
+// layout for ie < 9
+.lte-ie8 {
+    .button {
+        &:active:before {
+            top: auto;
+        }
+    }
 }
