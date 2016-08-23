@@ -1,0 +1,55 @@
+.flash-card {
+    margin-top: em(25, 24);
+    padding: $gutter;
+    background: $govuk-blue;
+    color: $white;
+
+    @include media(desktop) {
+        margin-top: em(45, 36);
+        padding: $gutter * 2;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .grid-row {
+        @include media(desktop) {
+            min-height: 17em;
+        }
+    }
+
+    a {
+        color: $white;
+        &:link, &:visited {
+            color: $white;
+        }
+        &:hover {
+            color: darken($white, 5%);
+        }
+    }
+
+    .button {
+        @include button($white);
+        font-weight: 700;
+        color: $govuk-blue;
+        @include box-shadow(0 2px 0 darken($govuk-blue, 25%));
+
+        @include media(tablet) {
+            padding-right: 3.6em;
+            padding-left: 3.6em;
+        }
+
+        &:link,
+        &:hover,
+        &:focus,
+        &:visited {
+            color: $govuk-blue;
+        }
+
+        & + .inline-options {
+            margin-top: 0.3em;
+            padding-top: 0;
+        }
+    }
+}
