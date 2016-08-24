@@ -15,12 +15,12 @@ describe('Validation', function () {
     describe('summary', function () {
 
         beforeEach(function () {
-            $('#content').append('<div class="validation-summary" tabindex="-1">');
+            $('#content').append('<div class="error-summary" tabindex="-1">');
             validation();
         });
 
         it('adds focus to the validation summary', function () {
-            document.activeElement.should.equal(document.getElementsByClassName('validation-summary')[0]);
+            document.activeElement.should.equal(document.getElementsByClassName('error-summary')[0]);
         });
 
     });
@@ -28,8 +28,8 @@ describe('Validation', function () {
     describe('form error groups', function () {
 
         beforeEach(function () {
-            $('#content').append('<div class="validation-summary" tabindex="-1">');
-            $('.validation-summary').append('<ul><li><a id="error" href="#input-group">Error</a></li></ul>');
+            $('#content').append('<div class="error-summary" tabindex="-1">');
+            $('.error-summary').append('<ul><li><a id="error" href="#input-group">Error</a></li></ul>');
             $('#content').append('<div id="input-group">');
         });
 

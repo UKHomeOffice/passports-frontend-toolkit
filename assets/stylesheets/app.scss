@@ -3,9 +3,11 @@
 // govuk_frontend_toolkit
 @import "mixins";
 
+$path: "../images/govuk/";
 // govuk-elements
 @import "govuk-elements";
 
+$path: "../images/hmpo/";
 // Custom
 @import "base";
 @import "layout";

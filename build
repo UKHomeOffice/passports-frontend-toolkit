@@ -9,11 +9,11 @@ var GOVUK_TOOLKIT = path.dirname(require.resolve('govuk_frontend_toolkit/package
 function copyImages(callback) {
     var src = path.resolve(GOVUK_TOOLKIT, './images/');
 
-    fs.mkdir(path.resolve(__dirname, './assets/images/icons'), function (err) {
+    fs.mkdir(path.resolve(__dirname, './assets/images/govuk'), function (err) {
         if (err && err.code !== 'EEXIST') {
             callback(err);
         } else {
-            cp.exec('cp -R ' + src + '/* ./assets/images/icons/', callback);
+            cp.exec('cp -R ' + src + '/* ./assets/images/govuk/', callback);
         }
     });
 
