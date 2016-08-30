@@ -1,17 +1,8 @@
-$form-control-border: 2px solid $grey-1;
-$error-border: 4px solid $error-colour;
-
 .error {
-    .form-group {
-        .form-control {
-            border: $form-control-border;
-        }
-    }
-
     .form-date {
         .form-group {
             .invalid-input {
-                border: $error-border;
+                border: 4px solid $error-colour;
             }
         }
     }
