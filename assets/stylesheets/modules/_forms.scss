@@ -99,6 +99,10 @@ input::-webkit-inner-spin-button {
         float: left;
         margin-top: 5px;
         margin-top: 5px;
+        input {
+            top: 18px;
+            margin: 0;
+        }
     }
     .inline {
         .block-label {
@@ -107,6 +111,11 @@ input::-webkit-inner-spin-button {
     }
     .form-control {
         width: 50%;
+    }
+    .form-block {
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 0;
     }
     .postcode {
         width: 33%;
