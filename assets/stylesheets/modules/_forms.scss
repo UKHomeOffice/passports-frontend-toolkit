@@ -34,6 +34,19 @@ select {
 .block-label {
     margin-top: 10px;
     margin-bottom: 0;
+    padding-left: $gutter*1.5;
+
+    input {
+        width: auto;
+        height: auto;
+        top: 16px;
+        left: $gutter-half;
+        margin-top: 3px;
+        margin-left: 5px;
+        @include media(tablet) {
+            top: 18px;
+        }
+    }
 }
 
 .form-block {
