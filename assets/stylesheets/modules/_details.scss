@@ -3,6 +3,9 @@ details {
     @include media(tablet) {
         margin-bottom: $gutter;
     }
+    .panel {
+        margin-bottom: 0;
+    }
 }
 
 .js-enabled {
