@@ -1,6 +1,6 @@
 {
   "name": "hmpo-frontend-toolkit",
-  "version": "4.0.0",
+  "version": "4.0.0-rev1",
   "description": "Set of common UI patterns/styles for hmpo projects",
   "main": "index.js",
   "scripts": {
