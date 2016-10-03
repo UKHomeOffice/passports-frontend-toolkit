@@ -39,9 +39,13 @@ describe('Progressive Reveal', function () {
         describe('parent panel', function () {
 
             beforeEach(function () {
-                $('form').append('<div id="check-toggle-panel" class="reveal js-hidden">');
+                $('form').append('<div id="check-toggle-panel">');
                 $('label').append('<input type="checkbox" id="check" name="check" data-toggle="check-toggle">CheckBox');
                 progressiveReveal();
+            });
+
+            it('should have added the js-hidden class', function () {
+                $('#check-toggle-panel').hasClass('js-hidden').should.be.ok;
             });
 
             it('should show #check-toggle-panel if present', function () {
