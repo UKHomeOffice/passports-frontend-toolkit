@@ -8,6 +8,13 @@ details {
     }
 }
 
+.button + details {
+    margin-top: $gutter-half;
+    @include media(tablet) {
+        margin-top: $gutter;
+    }
+}
+
 .js-enabled {
     details.focused {
         outline: $focus-outline;
