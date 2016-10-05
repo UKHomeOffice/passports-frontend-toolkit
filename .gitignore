@@ -1,5 +1,6 @@
 assets/stylesheets/*.css
 assets/images/icons
+assets/images/govuk
 
 # Logs
 logs

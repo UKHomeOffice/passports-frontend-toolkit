@@ -13,7 +13,7 @@ describe('Progressive Reveal', function () {
         beforeEach(function () {
             $('#test-container').append('<form />');
             $('form').append('<label for="check">');
-            $('form').append('<div id="check-toggle" class="reveal js-hidden">');
+            $('form').append('<div id="check-toggle">');
         });
 
         describe('single', function () {
@@ -21,6 +21,14 @@ describe('Progressive Reveal', function () {
             beforeEach(function () {
                 $('label').append('<input type="checkbox" id="check" name="check" data-toggle="check-toggle">CheckBox');
                 progressiveReveal();
+            });
+
+            it('adds the js-hidden class', function () {
+                $('#check-toggle').hasClass('js-hidden').should.be.ok;
+            });
+
+            it('sets aria-controls to the id of the target element', function () {
+                $('#check').attr('aria-controls').should.be.equal('check-toggle');
             });
 
             it('show toggle content when checked', function () {
@@ -39,20 +47,28 @@ describe('Progressive Reveal', function () {
         describe('parent panel', function () {
 
             beforeEach(function () {
-                $('form').append('<div id="check-toggle-panel" class="reveal js-hidden">');
+                $('form').append('<div id="check-toggle-panel">');
                 $('label').append('<input type="checkbox" id="check" name="check" data-toggle="check-toggle">CheckBox');
                 progressiveReveal();
             });
 
-            it('should show #check-toggle-panel if present', function () {
+            it('hides the parent panel on load', function () {
+                $('#check-toggle-panel').hasClass('js-hidden').should.be.ok;
+            });
+
+            it('doesn\'t hide the target element', function () {
+                $('#check-toggle').hasClass('js-hidden').should.not.be.ok;
+            });
+
+            it('sets aria-controls to the id of the parent panel', function () {
+                $('#check').attr('aria-controls').should.be.equal('check-toggle-panel');
+            });
+
+            it('shows the parent panel when the checkbox is clicked', function () {
                 $('#check').click();
                 $('#check-toggle-panel').hasClass('js-hidden').should.not.be.ok;
             });
 
-            it('should not show #show-toggle', function () {
-                $('#check').click();
-                $('#check-toggle').hasClass('js-hidden').should.be.ok;
-            });
         });
 
         describe('pre-selected', function () {
@@ -62,7 +78,7 @@ describe('Progressive Reveal', function () {
                 progressiveReveal();
             });
 
-            it('show toggle content when checkbox is pre-selected', function () {
+            it('shows toggle content when checkbox is pre-selected', function () {
                 $('#check-toggle').hasClass('js-hidden').should.not.be.ok;
             });
 
@@ -79,8 +95,12 @@ describe('Progressive Reveal', function () {
                 // third checkbox has toggle content
                 $('form').append('<label for="check-another">');
                 $('label[for=check-another]').append('<input type="checkbox" id="check-another" name="check-another" data-toggle="check-another-toggle">');
-                $('form').append('<div id="check-another-toggle" class="reveal js-hidden">');
+                $('form').append('<div id="check-another-toggle">');
                 progressiveReveal();
+            });
+
+            it('adds the js-hidden class', function () {
+                $('#check-toggle').hasClass('js-hidden').should.be.ok;
             });
 
             it('only show toggle content for the particular checkbox', function () {
@@ -104,7 +124,7 @@ describe('Progressive Reveal', function () {
         beforeEach(function () {
             $('#test-container').append('<form />');
             $('form').append('<label for="radio1">');
-            $('form').append('<div id="radio1-toggle" class="reveal js-hidden">');
+            $('form').append('<div id="radio1-toggle">');
         });
 
         describe('pre-selected', function () {
@@ -142,13 +162,18 @@ describe('Progressive Reveal', function () {
                 $('label').append('<input type="radio" name="group1" id="radio1" data-toggle="radio1-toggle">');
                 $('form').append('<label for="radio2">');
                 $('label[for=radio2]').append('<input type="radio" name="group1" id="radio2" data-toggle="radio2-toggle">');
-                $('form').append('<div id="radio2-toggle" class="reveal js-hidden">');
+                $('form').append('<div id="radio2-toggle">');
             });
 
             describe('with as many toggles as radios', function () {
 
                 beforeEach(function () {
                     progressiveReveal();
+                });
+
+                it('hides all toggle elements on init', function () {
+                    $('#radio1-toggle').hasClass('js-hidden').should.be.ok;
+                    $('#radio2-toggle').hasClass('js-hidden').should.be.ok;
                 });
 
                 it('show content when checked', function () {
@@ -174,8 +199,12 @@ describe('Progressive Reveal', function () {
                     // group 2
                     $('form').append('<label for="radio4">');
                     $('label[for=radio4]').append('<input type="radio" name="group2" id="radio4" data-toggle="radio4-toggle">');
-                    $('form').append('<div id="radio4-toggle" class="reveal js-hidden">');
+                    $('form').append('<div id="radio4-toggle">');
                     progressiveReveal();
+                });
+
+                it('hides toggle element on init', function () {
+                    $('#radio4-toggle').hasClass('js-hidden').should.be.ok;
                 });
 
                 it('show nothing if no associated toggle content', function () {
