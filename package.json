@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run test-sass && npm run test-client && npm run snyk",
     "postinstall": "./build",
-    "test-sass": "npm-sass assets/stylesheets/app.scss -o assets/stylesheets",
+    "test-sass": "npm-sass assets/stylesheets/app.scss > assets/stylesheets/app.css",
     "test-client": "karma start ./test/client/karma.conf.js",
     "lint": "eslint .",
     "snyk": "snyk test"
