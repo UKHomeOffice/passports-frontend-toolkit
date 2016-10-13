@@ -14,7 +14,18 @@ $path: "../images/hmpo/";
 @import "typography";
 
 // Modules
-@import "modules/validation";
 @import "modules/progressive-reveal";
 @import "modules/buttons";
 @import "modules/lists";
+
+@import "modules/forms";
+@import "modules/form-date";
+@import "modules/form-validation";
+@import "modules/panels";
+@import "modules/details";
+@import "modules/box-highlight";
+
+@import "modules/flash-card";
+
+@import "modules/back-link";
+@import "modules/close";

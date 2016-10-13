@@ -1,0 +1,14 @@
+.govuk-box-highlight {
+    h1 {
+        margin: $gutter-half 0;
+    }
+
+    a {
+        color: $white;
+        &.download {
+            background: file-url("icon-file-download-white.png") no-repeat 0 0;
+            padding-left: 28px;
+            line-height: 20px;
+        }
+    }
+}

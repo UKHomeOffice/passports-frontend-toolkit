@@ -1,0 +1,123 @@
+form {
+    @extend %contain-floats;
+}
+
+select {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0.6em 0 0;
+    padding: 0.4em 0 0.3em 0;
+    border: 1px solid #aaa;
+    background-color: $panel-colour;
+    border-bottom-color: rgb(170, 170, 170);
+    @include core-19();
+    @include media(tablet) {
+        width: 320px;
+    }
+}
+
+.textarea {
+    height: 120px;
+    @include media(desktop) {
+        width: 75%;
+    }
+}
+
+.form-label-bold {
+    @include bold-24;
+    margin-bottom: 0;
+    .form-hint {
+        @include core-19;
+    }
+}
+
+.block-label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: $gutter*1.5;
+
+    input {
+        width: auto;
+        height: auto;
+        top: 16px;
+        left: $gutter-half;
+        margin-top: 3px;
+        margin-left: 5px;
+        @include media(tablet) {
+            top: 18px;
+        }
+    }
+}
+
+.form-block {
+    float: none;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    @include media(tablet) {
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+.form-user-data {
+    h2 {
+        margin: 0;
+    }
+    span {
+        font-weight: 700;
+        margin-right: $gutter-half;
+    }
+}
+
+.focus {
+    outline: $focus-outline;
+}
+
+.input-code {
+    text-transform: uppercase;
+    @include media(tablet) {
+        width: 160px;
+    }
+}
+
+[id$="-group"]:focus {
+    outline: 0;
+}
+
+// Hide the 'spinner' for input[type="number"]
+// for webkit and Firefox
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+// layout for ie < 9
+.lte-ie8 {
+    .block-label {
+        float: left;
+        margin-top: 5px;
+        margin-top: 5px;
+        input {
+            top: 18px;
+            margin: 0;
+        }
+    }
+    .inline {
+        .block-label {
+            margin-right: $gutter-half;
+        }
+    }
+    .form-control {
+        width: 50%;
+    }
+    .form-block {
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    .postcode {
+        width: 33%;
+    }
+}

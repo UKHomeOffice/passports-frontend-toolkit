@@ -1,0 +1,10 @@
+.error {
+    .form-date {
+        .form-group {
+            .invalid-input {
+                border: 4px solid $error-colour;
+            }
+        }
+    }
+
+}

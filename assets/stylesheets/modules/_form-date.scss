@@ -1,0 +1,23 @@
+.form-date {
+    .form-group {
+        input {
+            &[id$="-year"] {
+                width: 70px;
+            }
+        }
+    }
+}
+
+
+.error {
+    .form-date {
+        .form-group {
+            .form-control {
+                // Make valid inputs the same widths
+                // as invalid inputs in date group
+                border: 4px solid $grey-1;
+                border-color: $grey-1;
+            }
+        }
+    }
+}

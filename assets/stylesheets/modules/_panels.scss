@@ -1,0 +1,18 @@
+// Elements overrides
+
+.panel {
+    margin-bottom: $gutter-half;
+    @include media(tablet) {
+        margin-bottom: $gutter;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.form-group {
+    .panel-border-narrow {
+        padding-bottom: em(15, 19);
+    }
+}
