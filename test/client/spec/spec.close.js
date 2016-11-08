@@ -38,8 +38,8 @@ describe('Close Window', function () {
             $('#test-container #close button').text().should.contain('Close');
         });
 
-        it('calls window.close() when clicked', function () {
-            util.triggerEvent(document.getElementById('close'), 'click');
+        it('calls window.close() when close button clicked', function () {
+            util.triggerEvent(document.getElementById('close-button'), 'click');
             window.close.should.have.been.calledOnce;
         });
 
@@ -61,6 +61,24 @@ describe('Close Window', function () {
         });
 
         it('does not call window.close() when clicked', function () {
+            util.triggerEvent(document.getElementById('close'), 'click');
+            window.close.should.not.have.been.called;
+        });
+
+    });
+
+    describe('clicking outside of the button', function () {
+
+        beforeEach(function () {
+            sinon.stub(helpers, 'isJSWindow').returns(true);
+            closeWindow();
+        });
+
+        afterEach(function () {
+            helpers.isJSWindow.restore();
+        });
+
+        it('does not call window.close() when containing div is clicked', function () {
             util.triggerEvent(document.getElementById('close'), 'click');
             window.close.should.not.have.been.called;
         });
