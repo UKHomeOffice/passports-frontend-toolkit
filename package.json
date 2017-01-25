@@ -4,7 +4,7 @@
   "description": "Set of common UI patterns/styles for hmpo projects",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run test-sass && npm run test-client && npm run snyk",
+    "test": "npm run lint && npm run test-sass && npm run test-client",
     "postinstall": "./build",
     "test-sass": "npm-sass assets/stylesheets/app.scss > assets/stylesheets/app.css",
     "test-client": "karma start ./test/client/karma.conf.js",
@@ -45,7 +45,7 @@
     "phantomjs-prebuilt": "^2.1.7",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
-    "snyk": "1.23.4",
+    "snyk": "^1.24.5",
     "underscore": "^1.8.3",
     "watchify": "^3.7.0"
   }
