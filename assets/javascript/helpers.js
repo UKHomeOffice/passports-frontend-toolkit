@@ -159,7 +159,7 @@ helpers.getStyle = function (elem, prop) {
     if (document.defaultView && document.defaultView.getComputedStyle) {
         val = document.defaultView.getComputedStyle(elem, '').getPropertyValue(prop);
     } else if (elem.currentStyle) {
-        prop = prop.replace(/\-(\w)/g, function (match, c) {
+        prop = prop.replace(/-(\w)/g, function (match, c) {
             return c.toUpperCase();
         });
         val = elem.currentStyle[prop];
